@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>In the School of Mary</title>
+<meta name="description" content="A student’s guide to the mysteries of the Rosary, the Seven Sorrows and four companion chaplets.">
+<meta name="theme-color" content="#23407A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+:root{
+  --paper:#F7F8FB; --surface:#FFFFFF; --ink:#1C2333; --muted:#5E6677; --line:#DDE1EA;
+  --lapis:#23407A; --gold:#9C7A26; --goldsoft:#F1EAD6;
+  --joyful:#2E5C9A; --luminous:#9C7A26; --sorrowful:#8C2633; --glorious:#2F6B47; --sorrows:#5B2A6E;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#0F1729; --surface:#17223A; --ink:#E7EAF2; --muted:#A3ABBD; --line:#2A3654;
+  --lapis:#8FB0E8; --gold:#D7B35A; --goldsoft:#2A2A22;
+  --joyful:#8FB0E8; --luminous:#D7B35A; --sorrowful:#E28A93; --glorious:#8CC9A2; --sorrows:#C39AD6;
+  color-scheme:dark; }}
+:root[data-theme="dark"]{
+  --paper:#0F1729; --surface:#17223A; --ink:#E7EAF2; --muted:#A3ABBD; --line:#2A3654;
+  --lapis:#8FB0E8; --gold:#D7B35A; --goldsoft:#2A2A22;
+  --joyful:#8FB0E8; --luminous:#D7B35A; --sorrowful:#E28A93; --glorious:#8CC9A2; --sorrows:#C39AD6;
+  color-scheme:dark; }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  padding:calc(env(safe-area-inset-top,0px) + 10px) 18px 10px;display:flex;align-items:center;gap:10px}
+header .home{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-style:italic;font-size:17px;color:var(--lapis);text-decoration:none}
+header .ib{width:40px;height:40px;display:inline-grid;place-items:center;background:none;border:1px solid var(--line);color:var(--lapis);border-radius:50%;padding:0;cursor:pointer}
+header .ib:hover{background:var(--surface)}
+header .ib svg{width:20px;height:20px}
+a.ref{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:1px;text-underline-offset:3px}
+a.ref:hover{color:var(--lapis)}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.opt input{margin-top:6px;accent-color:var(--lapis);width:18px;height:18px}
+.opt small{display:block;color:var(--muted);font-size:15px}
+select{font:inherit;font-size:17px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);width:100%;max-width:100%}
+.seg{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;width:max-content}
+.seg button{font:inherit;font-size:16px;border:none;background:none;color:var(--ink);padding:8px 16px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--lapis);color:var(--paper)}
+header button:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+main{max-width:640px;margin:0 auto;padding:22px 20px 60px}
+h1,h2,h3{font-weight:normal;line-height:1.2}
+h1{font-size:34px;margin:4px 0 6px;font-style:italic}
+h2{font-size:25px;margin:28px 0 6px}
+h3{font-size:19px;margin:20px 0 4px;font-weight:bold}
+p{margin:0 0 12px}
+a{color:var(--lapis)}
+.muted{color:var(--muted)}
+.refs{font-style:italic;color:var(--muted);font-size:16px;margin-bottom:14px}
+.date{color:var(--muted);font-size:16px}
+.lbl{font-style:italic;color:var(--accent,var(--gold));font-size:16px;margin:18px 0 2px}
+/* the strand: five beads on a cord */
+.strand{list-style:none;margin:18px 0 8px;padding:0;position:relative}
+.strand::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:2px;background:var(--accent,var(--lapis));opacity:.35}
+.strand li{position:relative;padding:0 0 0 40px;margin:0}
+.strand li a{display:block;padding:9px 0;text-decoration:none;color:var(--ink);font-size:20px}
+.strand li a small{display:block;color:var(--muted);font-size:15px;font-style:italic}
+.strand li::before{content:"";position:absolute;left:3px;top:15px;width:18px;height:18px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--accent,var(--lapis))}
+.strand li a:hover{color:var(--accent,var(--lapis))}
+.also{border-left:3px solid var(--gold);padding:4px 0 4px 14px;margin:18px 0 0}
+nav.index{margin-top:34px;border-top:1px solid var(--line)}
+nav.index a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 2px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:19px}
+nav.index a span{color:var(--muted);font-size:15px;font-style:italic;text-align:right}
+.dl{display:inline-block;margin-top:26px;background:var(--lapis);color:var(--paper);text-decoration:none;padding:11px 20px;border-radius:6px;font-size:17px}
+.note{background:var(--goldsoft);border-radius:6px;padding:12px 15px;font-size:16px;margin:16px 0}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:30px;padding-top:14px;border-top:1px solid var(--line)}
+.pager a{text-decoration:none;font-size:16px;max-width:48%}
+.pager a.next{text-align:right;margin-left:auto}
+.wrap{overflow-x:auto;margin:10px 0 14px}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td,th{text-align:left;vertical-align:top;padding:7px 8px 7px 0;border-bottom:1px solid var(--line)}
+th{font-weight:bold}
+tr.today td{color:var(--lapis);font-weight:bold}
+.reflect{font-style:italic}
+dialog{border:none;border-radius:10px;max-width:520px;width:calc(100% - 32px);background:var(--surface);color:var(--ink);padding:24px;font-size:17px}
+dialog::backdrop{background:rgba(10,15,30,.55)}
+dialog h2{margin-top:0}
+.back{font-size:16px;text-decoration:none;display:inline-block;margin-bottom:6px}
+@media (prefers-reduced-motion:no-preference){ main{animation:in .25s ease-out} @keyframes in{from{opacity:0}to{opacity:1}} }
+</style>
+</head>
+<body>
+<header>
+  <a class="home" href="#home">In the School of Mary</a>
+  <button id="themeBtn" class="ib" aria-label="Appearance: Auto. Tap to change." title="Appearance: Auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
+  <a id="setBtn" class="ib" href="#settings" aria-label="Settings" title="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>
+  <button id="aboutBtn" class="ib" aria-label="About" title="About"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button>
+</header>
+<main id="app"></main>
+
+<dialog id="about">
+  <h2>About</h2>
+  <p><i>In the School of Mary: A Student’s Guide to the Mysteries of the Rosary</i>.</p>
+  <p>Built by Claude using material provided by and under the guidance of Keith Francis.</p>
+  <p>Keith set the scope, audience and purpose of the guide. Claude researched, drafted and typeset the text and built this app and the companion booklet.</p>
+  <p class="muted">As with any study aid, check its notes against Scripture, the Catechism and the teaching of the Church, and take questions to a priest or catechist.</p>
+  <p class="muted">Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>. Scripture references follow the RSV-2CE; the traditional prayers are in the public domain.</p>
+  <p class="muted">Works offline once opened. Version <span id="ver"></span>.</p>
+  <button id="aboutClose" type="button" style="font:inherit;padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer">Close</button>
+</dialog>
+
+<script>
+const VERSION = "1.2.1";
+const D = {"sets": [{"key": "joyful", "name": "The Joyful Mysteries", "days": "Mondays and Saturdays", "season": "Customarily also the Sundays of Advent and the Christmas season", "color": "#1F4E79", "intro": "The Joyful Mysteries are the Gospel of the Incarnation: God taking flesh in the womb of a Jewish girl in an occupied province. John Paul II called them mysteries of joy that already carry a shadow, because the sword Simeon foretells is never far away (RVM 20). Read them slowly with Luke 1–2 open; nearly every line of Luke’s infancy narrative is woven from the Greek Old Testament, and the joy here is the joy of promises being kept.", "mysteries": [{"t": "The Annunciation", "refs": "Luke 1:26–38; Isaiah 7:14; Exodus 40:34–35", "text": "Gabriel greets Mary as <i>kecharitōmenē</i> (κεχαριτωμένη), a perfect passive participle: one who has been graced and remains so. The RSV-2CE keeps the traditional “full of grace”; the NRSV-CE has “favoured one.” Both are defensible, but the perfect tense is the hinge of later Marian doctrine. Note also <i>episkiasei</i>, “will overshadow” (1:35): it is the word the Septuagint uses for the cloud of glory settling on the Tabernacle. Mary is being described as the new dwelling place of God. Her answer, <i>genoito</i> (γένοιτο, “let it be”), is an optative of desire, not reluctant consent.", "fruit": "Humility", "fruitx": "Not self-deprecation but truthful availability: “Behold, the handmaid of the Lord.” Humility here is the readiness to let God redefine one’s life.", "pray": "For the grace to say yes to God’s will before seeing where it leads; for expectant mothers and the unborn; for all who are discerning a vocation.", "q": "Mary questions Gabriel (“How can this be?”) and is not rebuked, while Zechariah is (1:18–20). What distinguishes a faithful question from an unbelieving one, and how does that frame your own rigorous approach to Scripture?"}, {"t": "The Visitation", "refs": "Luke 1:39–56; 2 Samuel 6:1–16; 1 Samuel 2:1–10", "text": "Luke tells this story in the shape of David bringing the Ark to Jerusalem. The Ark goes to the hill country of Judah; Mary “arose and went” there. David asks, “How can the ark of the LORD come to me?”; Elizabeth asks why the mother of her Lord should come to her. David dances; John leaps (<i>skirtaō</i>). The Ark stays three months in the house of Obed-edom; Mary stays about three months. Elizabeth “exclaimed” with <i>anaphōneō</i>, a verb the Septuagint uses only for the Levites sounding their instruments before the Ark (1 Chr 15:28; 16:4–5). The Magnificat then echoes Hannah’s song almost line for line.", "fruit": "Love of neighbour", "fruitx": "Mary’s first act after receiving Christ is to carry him to someone in need. Charity is the natural overflow of grace received.", "pray": "For charity that goes “with haste”; for those who serve the elderly and expectant mothers; for joy in the Holy Spirit, who fills Elizabeth at Mary’s greeting.", "q": "Elizabeth is “filled with the Holy Spirit” and prophesies (1:41–42). How does this scene fit the framework you have built for prophecy in your study of the charismata?"}, {"t": "The Nativity of Our Lord", "refs": "Luke 2:1–20; Matthew 1:18–2:12; Micah 5:2; Wisdom 7:4–5", "text": "Bethlehem is <i>bêt leḥem</i>, “house of bread,” and the newborn is laid in a <i>phatnē</i>, a feeding trough: the Fathers did not miss the Eucharistic hint. Luke says there was no room in the <i>katalyma</i>, best read as “guest room” rather than a commercial inn; it is the same word used for the upper room of the Last Supper (Luke 22:11). The swaddling cloths recall Solomon, who says even a king began life wrapped in swaddling clothes (Wis 7:4–5). The sign to the shepherds is not glory but ordinariness.", "fruit": "Poverty of spirit", "fruitx": "Detachment from possessions, status and control, so that God can be received as gift. Matthew 5:3 is the commentary.", "pray": "For the poor and the homeless; for refugees, as the Holy Family soon will be; for families, and for a heart free of the clutter that leaves no room.", "q": "Luke frames the birth with Caesar Augustus’s census (2:1). What is the evangelist saying about where real power lies?"}, {"t": "The Presentation in the Temple", "refs": "Luke 2:22–38; Exodus 13:2, 12–13; Leviticus 12:6–8; Malachi 3:1", "text": "Two laws are fulfilled: the purification of the mother (Lev 12) and the redemption of the firstborn (Exod 13). The pair of turtledoves is the offering permitted to those who cannot afford a lamb, so the Holy Family is poor. The deeper irony is that the Lamb himself is being brought in. Malachi 3:1 is fulfilled quietly: the Lord comes suddenly to his Temple, and only two elderly prophets notice. Simeon’s <i>Nunc dimittis</i> is prayed every night at Compline; his prophecy of a sword (<i>rhomphaia</i>) piercing Mary’s soul is the first of the Seven Sorrows.", "fruit": "Obedience (and purity)", "fruitx": "Mary and Joseph keep a law that, strictly, did not bind them in this case. Obedience here is love expressed in faithful observance.", "pray": "For fidelity to God’s commandments; for the elderly faithful who wait in prayer like Simeon and Anna; for consecrated men and women (2 February is the World Day for Consecrated Life).", "q": "Anna is called a prophetess and spends decades in fasting and prayer. What does her hidden ministry say about the gifts God gives that are never seen in public?"}, {"t": "The Finding of Jesus in the Temple", "refs": "Luke 2:41–52; Luke 24:46", "text": "Jesus’ first recorded words are a question, and the phrase usually translated “in my Father’s house” is literally <i>en tois tou patros mou</i>, “in the things of my Father,” which can mean his Father’s house, business or affairs. The loss lasts three days and ends in the Temple, foreshadowing the three days between Calvary and the empty tomb. Luke notes that Mary and Joseph did not understand, and that Mary “kept all these things in her heart.” Faith here lives alongside incomprehension.", "fruit": "Joy in finding Jesus (and piety)", "fruitx": "The grace to seek Christ when he seems absent and to rejoice in finding him again among the teachers, in Scripture and in the Church.", "pray": "For all who have drifted from faith and are searching, and for those who are coming back; for students and teachers; for young people discovering a vocation.", "q": "Your own story includes a season of distance and a significant return. Where did you “find him in the Temple” again?"}]}, {"key": "luminous", "name": "The Luminous Mysteries", "days": "Thursdays", "season": "Added by St John Paul II in 2002; Thursday also carries the traditional dedication to the Blessed Sacrament", "color": "#9A6B00", "intro": "John Paul II added these five “mysteries of light” in <i>Rosarium Virginis Mariae</i> (2002) to fill the gap between Nazareth and Gethsemane: Christ’s public ministry, where he is revealed as the Light of the world (John 8:12). Mary is mostly in the background here, which is the point. She appears directly only at Cana, and her one instruction there governs the whole set: “Do whatever he tells you” (RVM 21).", "mysteries": [{"t": "The Baptism of the Lord", "refs": "Matthew 3:13–17; Mark 1:9–11; Isaiah 42:1; Psalm 2:7", "text": "Mark says the heavens were “torn open” (<i>schizomenous</i>). He uses the same verb only once more: when the Temple veil is torn at the death of Jesus (15:38). The ministry is bracketed by two tearings, God breaking through to humanity. The Father’s voice joins Psalm 2:7 (royal sonship) to Isaiah 42:1 (the Servant), and the Spirit descends: the Trinity is revealed at the Jordan. The sinless one goes down into the waters of repentance in solidarity with sinners, and in doing so, the Fathers said, he sanctified the waters for our baptism.", "fruit": "Openness to the Holy Spirit", "fruitx": "The grace to live out baptismal promises and to let the Spirit who descended on Christ act freely in us.", "pray": "For all preparing to receive the sacraments of initiation; for the renewal of the baptismal grace already given; for docility to the Spirit.", "q": "With Brethren and Anglican formation behind you, you already know baptism from several angles. What does the Catholic emphasis on baptism as the beginning of divine life (CCC 1213) add to or clarify in what you received?"}, {"t": "The Wedding at Cana", "refs": "John 2:1–11; Genesis 41:55; John 19:25–27; Genesis 3:15", "text": "Jesus addresses his mother as <i>gynai</i>, “Woman,” which is not rude in Greek but is unusual from a son. He uses it once more for her, from the Cross (19:26), and both scenes refer to his “hour.” Readers since the Fathers have heard an echo of the Woman of Genesis 3:15. Mary’s words to the servants repeat almost exactly Pharaoh’s instruction about Joseph: “Go to Joseph; what he says to you, do” (Gen 41:55). The six stone jars for Jewish purification hold some 120 to 180 gallons; the first “sign” (<i>sēmeion</i>) is abundance, the wine of the messianic banquet (Isa 25:6; Amos 9:13).", "fruit": "To Jesus through Mary", "fruitx": "Trust in Mary’s intercession, which always ends by pointing away from herself: “Do whatever he tells you.” (CCC 2618 reads Cana as a model of her intercession.)", "pray": "For married couples and families; for those whose “wine has run out”; for confidence in asking, and readiness to obey.", "q": "Notice that Mary does not tell Jesus what to do; she simply names the need. How does that shape the way you bring intercessions?"}, {"t": "The Proclamation of the Kingdom and the Call to Conversion", "refs": "Mark 1:14–15; Matthew 5–7; Luke 7:36–50; John 20:21–23", "text": "Jesus’ opening proclamation is <i>metanoeite</i>, “change your mind” in the deepest sense: turn the whole person around. The Kingdom is announced in word (the Sermon on the Mount) and in deeds of mercy, above all the forgiveness of sins. John Paul II explicitly tied this mystery to the ministry of mercy Christ continues in the Sacrament of Reconciliation (RVM 21). On Easter evening Jesus breathes on the apostles (<i>enephysēsen</i>, the verb of Genesis 2:7 in the Septuagint) and gives them authority to forgive and retain sins.", "fruit": "Repentance and trust in God’s mercy", "fruitx": "Ongoing conversion, not a single moment. The Catechism calls Penance the “second plank” of salvation after the shipwreck of grave sin (CCC 1446).", "pray": "For all preparing for confession, especially for the first time; for priests who hear confessions; for those who proclaim the Gospel.", "q": "You have named Reconciliation as genuinely new terrain. Read John 20:21–23 alongside Matthew 16:19 and 18:18. What is being handed on, and to whom?"}, {"t": "The Transfiguration", "refs": "Matthew 17:1–8; Mark 9:2–8; Luke 9:28–36; 2 Peter 1:16–18", "text": "Jesus “was transfigured” (<i>metemorphōthē</i>, the root of “metamorphosis”), the same word Paul uses for our being changed into his likeness (2 Cor 3:18; Rom 12:2). Moses and Elijah, the Law and the Prophets, both met God on a mountain. Only Luke records what they discussed: his <i>exodos</i>, his “departure,” about to be accomplished in Jerusalem (9:31). Peter’s offer to build three tents (<i>skēnas</i>) echoes the Feast of Tabernacles. The cloud overshadows them, as it did Mary, and the Father’s command adds three words to the baptismal voice: “Listen to him.”", "fruit": "Desire for holiness", "fruitx": "A longing to be changed from glory into glory, and courage drawn from glimpses of glory for the descent into ordinary life and suffering.", "pray": "For those in spiritual darkness or discouragement; for contemplatives; for the grace to listen to Christ.", "q": "Eastern Christians see the light of Tabor as the uncreated energies of God. How does the Transfiguration change what you expect the resurrection body to be?"}, {"t": "The Institution of the Eucharist", "refs": "Luke 22:14–20; 1 Corinthians 11:23–29; John 6:51–58; Exodus 24:8", "text": "“This is my body … this is my blood of the covenant” deliberately repeats Moses at Sinai: “Behold the blood of the covenant” (Exod 24:8). “Do this in remembrance” uses <i>anamnēsis</i>, which in biblical usage means making a saving event present, not mere recollection. Read John 6 alongside: from verse 54 Jesus shifts from the ordinary verb for eating (<i>phagein</i>) to <i>trōgō</i>, a blunt word for chewing or gnawing, and many disciples leave rather than accept it (6:66). He does not soften the words to call them back.", "fruit": "Adoration and love of the Eucharist", "fruitx": "Belief in the Real Presence that becomes worship, thanksgiving and a hunger for Communion. The Eucharist is “the source and summit of the Christian life” (CCC 1324).", "pray": "For priests; for those preparing for First Holy Communion; for all who cannot yet receive and long to; for reverence at Mass and in Adoration.", "q": "For you, the doorway was simple: Jesus said so, so it is so. Peter’s answer in John 6:68 is the same move. What did accepting that one teaching change about how you approach the rest?"}]}, {"key": "sorrowful", "name": "The Sorrowful Mysteries", "days": "Tuesdays and Fridays", "season": "Customarily also the Sundays of Lent", "color": "#7A1F2B", "intro": "The Gospels give the Passion more space than any other part of Christ’s life, and so does the Rosary. John Paul II wrote that these mysteries bring the believer to “relive the death of Jesus,” standing at the foot of the Cross beside Mary (RVM 22). Pray them slowly. These are not scenes to rush past on the way to Easter; they show the measure of God’s love and the true weight of sin.", "mysteries": [{"t": "The Agony in the Garden", "refs": "Luke 22:39–46; Mark 14:32–42; Matthew 26:36–46", "text": "Gethsemane means “oil press” (<i>gat šemanê</i>): the place where olives are crushed. Luke calls Jesus’ state <i>agōnia</i>, a word for the tension of a contestant before a struggle, and says his sweat became like drops (<i>thromboi</i>, clots) of blood. Mark preserves the Aramaic <i>Abba</i>. Mankind’s first disobedience happened in a garden; here, in a garden, the new Adam says “not what I will, but what you will.” Matthew notes that Jesus prayed a third time, “saying the same words” (26:44): the Lord himself prays by repetition.", "fruit": "Sorrow for sin and conformity to God’s will", "fruitx": "Contrition that grows from seeing what sin costs, and the grace to pray “your will be done” when it hurts.", "pray": "For all in anguish, fear or depression; for those facing death; for the grace to stay awake and pray with Christ rather than sleep.", "q": "Three disciples are asked to watch with him one hour (Matt 26:40). How does this shape your understanding of Eucharistic Adoration?"}, {"t": "The Scourging at the Pillar", "refs": "John 19:1; Mark 15:15; Isaiah 53:4–6; 1 Peter 2:24", "text": "The Gospels record the scourging in a single word, but Roman flagellation with the <i>flagrum</i> was not limited, as Jewish law limited beatings to forty strokes (Deut 25:3). Isaiah 53:5 says “with his stripes we are healed”; the Hebrew <i>ḥabbûrâ</i> means a weal or bruise, and 1 Peter 2:24 applies the verse directly to Christ. The innocent body receives what the guilty deserve. Tradition has linked this mystery especially to sins of the flesh, for which the sinless flesh of Christ makes reparation.", "fruit": "Purity and mortification", "fruitx": "Mastery of the senses and appetites, and the dignity of the body as something redeemed at great cost (1 Cor 6:19–20).", "pray": "For purity of heart and body; for all who suffer violence or torture; for healing for those wounded in body and mind.", "q": "Read Isaiah 52:13–53:12 straight through. Which lines would a first-century reader most naturally have connected to this scene?"}, {"t": "The Crowning with Thorns", "refs": "Matthew 27:27–31; John 19:2–5; Genesis 3:17–18", "text": "Thorns first appear in Scripture as the fruit of the curse (Gen 3:18). Christ now wears the curse as a crown. The soldiers stage a mock enthronement: a purple or scarlet cloak, a reed for a sceptre, the salute “Hail, King of the Jews.” Their mockery is accidentally true. Pilate then presents him with <i>Idou ho anthrōpos</i>, “Behold the man” (<i>Ecce homo</i>): Pilate means a pitiable wreck; John means the true Man, the new Adam.", "fruit": "Moral courage and humility of mind", "fruitx": "Indifference to worldly honour and mockery, and the courage to confess Christ as King when it costs reputation.", "pray": "For persecuted Christians; for those ridiculed for their faith; for purity of thought; for rulers, that they would govern as servants.", "q": "Kingship runs from the Magi’s gifts to the title on the Cross. Trace how Matthew develops the theme of Jesus as King."}, {"t": "The Carrying of the Cross", "refs": "John 19:16–17; Luke 23:26–31; Genesis 22:6; Luke 9:23", "text": "John says Jesus went out “bearing his own cross” (19:17); the Synoptics add that Simon of Cyrene was pressed into carrying it. Both are true, and both matter: Christ carries what we cannot, and then shares the burden with a reluctant bystander. The Fathers saw Isaac carrying the wood up Mount Moriah for his own sacrifice (Gen 22:6). Luke alone records the women of Jerusalem, and Jesus turning their grief toward repentance. Tradition places here Christ’s meeting with his Mother, the fourth of her Seven Sorrows.", "fruit": "Patience", "fruitx": "Carrying one’s daily cross (Luke 9:23 adds “daily”) without resentment, and willingness to help carry another’s.", "pray": "For all bearing heavy burdens of illness, grief, poverty or work; for caregivers; for those, like Simon, who help others along the way.", "q": "Simon of Cyrene is named with his sons, Alexander and Rufus (Mark 15:21), suggesting they were known to Mark’s readers. What might it mean that a forced act of help became a family’s doorway to faith?"}, {"t": "The Crucifixion and Death of Our Lord", "refs": "John 19:17–37; Luke 23:33–46; Mark 15:33–39; Psalm 22", "text": "Jesus’ cry <i>Eloi, Eloi, lema sabachthani</i> (Mark 15:34, in Aramaic) is the opening of Psalm 22, a psalm that moves from abandonment to worldwide praise. John’s account has three key gestures: Mary is given to the Beloved Disciple as mother, Jesus says <i>tetelestai</i>, “it is finished” or “accomplished,” and from his pierced side flow blood and water, which the Fathers read as the Eucharist and Baptism, the Church born from the side of the new Adam as Eve was from the first. The centurion, a Gentile, makes the Gospel’s climactic confession.", "fruit": "Perseverance and the salvation of souls", "fruitx": "Final perseverance in grace, self-giving love, and a share in Christ’s thirst for souls.", "pray": "For sinners, beginning with ourselves; for the dying, especially those without anyone to pray for them; for the conversion of the world.", "q": "Pray the whole of Psalm 22 with the Crucifixion before you. Where does the psalm turn, and what does that tell you about the Cross?"}]}, {"key": "glorious", "name": "The Glorious Mysteries", "days": "Wednesdays and Sundays", "season": "Sundays outside Advent, Christmas and Lent (by custom); also the Easter season", "color": "#2F5D3A", "intro": "The Glorious Mysteries move from the empty tomb to Mary’s Coronation: Christ’s victory, then its overflow into the Church and into the one human person who has already been brought fully into that glory. John Paul II called them the mysteries that rekindle hope for the end toward which we journey as members of God’s pilgrim people (RVM 23). Sunday, the day of Resurrection, belongs to them.", "mysteries": [{"t": "The Resurrection", "refs": "Matthew 28:1–10; John 20:1–29; Luke 24:13–35; 1 Corinthians 15:3–20", "text": "The Gospels mostly use the passive <i>ēgerthē</i>, “he has been raised,” stressing the Father’s act. Paul’s summary in 1 Corinthians 15:3–8, which he “received,” is among the earliest Christian texts we have, likely dating within a few years of the events, and lists named witnesses. The empty tomb is discovered by women, whose testimony carried little legal weight in that culture, a detail no one inventing the story would choose. At Emmaus the Lord is recognised “in the breaking of the bread” (Luke 24:35).", "fruit": "Faith", "fruitx": "A living faith in the risen Christ, strong enough to bear doubt, as Thomas’s was, and to turn it into confession: “My Lord and my God.”", "pray": "For those who doubt; for all who will be received into the Church at the Easter Vigil; for hope in the resurrection of the body.", "q": "Paul says that if Christ is not raised, our faith is futile (1 Cor 15:17). Why does Christianity stake everything on a historical event?"}, {"t": "The Ascension", "refs": "Luke 24:50–53; Acts 1:6–11; Daniel 7:13–14; Hebrews 9:24", "text": "Luke tells the Ascension twice, ending his Gospel and beginning Acts, so it is the hinge between Christ’s ministry and the Church’s. The cloud recalls Daniel 7, where one like a son of man comes on the clouds to the Ancient of Days and receives everlasting dominion. Hebrews reads it in priestly terms: Christ enters not a sanctuary made by hands but heaven itself, to appear in God’s presence on our behalf. Human nature now sits at the right hand of the Father.", "fruit": "Hope and desire for heaven", "fruitx": "Setting our minds on things above (Col 3:1–2) without neglecting the mission given on earth.", "pray": "For those who have lost hope; for missionaries and evangelists sent to the ends of the earth; for the grace to keep our eyes on our true homeland.", "q": "The angels ask, “Why do you stand looking into heaven?” (Acts 1:11). How do hope and mission belong together?"}, {"t": "The Descent of the Holy Spirit", "refs": "Acts 2:1–41; Acts 1:14; Exodus 19:16–19; Genesis 11:1–9; Joel 2:28–32", "text": "Pentecost (<i>Shavuot</i>) came to be celebrated in Judaism as the anniversary of the giving of the Law at Sinai, amid fire and sound. Now the Spirit comes as wind and fire, and the Law is written on hearts (Jer 31:33). The confusion of Babel is reversed: the nations hear one message in their own languages. At Sinai’s golden calf about three thousand died (Exod 32:28); at Pentecost about three thousand are brought to life (Acts 2:41). Mary is present in the upper room (1:14), the same Spirit who overshadowed her now filling the Church. Hebrew <i>rûaḥ</i> and Greek <i>pneuma</i> both mean breath and wind.", "fruit": "Love of God and the gifts of the Holy Spirit", "fruitx": "Zeal, wisdom, and openness both to the seven gifts that sanctify (Isa 11:2–3) and to the charisms given for building up the Church (1 Cor 12).", "pray": "For those preparing for Confirmation; for the renewal of the Church; for all who exercise the charisms, that they be used in charity and in communion with the Church.", "q": "The Catechism distinguishes sanctifying gifts from charisms and insists both are ordered to charity (CCC 799–801, 1830–1832). How does that map onto your own comparative work on the charismata?"}, {"t": "The Assumption of Mary", "refs": "Revelation 11:19–12:1; Psalm 132:8; 1 Corinthians 15:20–23; Genesis 5:24; 2 Kings 2:11", "text": "Scripture does not narrate the Assumption, and the Church does not claim it does. It was defined by Pius XII in <i>Munificentissimus Deus</i> (1950), resting on long-standing tradition, the liturgy of East and West (the Dormition), and its coherence with Scripture. Pius XII deliberately left open whether Mary died, saying only “having completed the course of her earthly life.” Scripture supplies precedents for bodily taking-up (Enoch, Elijah) and imagery: in Revelation 11:19 the Ark of the Covenant is seen in heaven, followed at once by the Woman clothed with the sun. Psalm 132:8 sings, “Arise, O LORD … you and the ark of your might.” Mary’s Assumption is the first fruit of what Christ promises to all who are his (CCC 966).", "fruit": "The grace of a holy death", "fruitx": "Devotion to Mary, and hope that the body, too, is destined for glory.", "pray": "For the dying; for the grace of a holy death for ourselves; for respect for the dignity of the human body in life and in death.", "q": "How does the Ark typology you traced in the Visitation strengthen, or limit, the scriptural case for the Assumption?"}, {"t": "The Coronation of Mary as Queen of Heaven and Earth", "refs": "Revelation 12:1; 1 Kings 2:19; Jeremiah 13:18; Psalm 45:9; 2 Timothy 4:8", "text": "In the Davidic kingdom the queen was not the king’s wife (kings had many) but his mother, the <i>gebîrâ</i> or “great lady.” When Bathsheba comes to Solomon he rises, bows, and sets a throne for her at his right hand (1 Kgs 2:19). Jeremiah names the queen mother alongside the king (13:18). Christ is the Son of David, so his mother holds this office. The Woman of Revelation 12 wears a crown of twelve stars. Pius XII taught Mary’s queenship in <i>Ad Caeli Reginam</i> (1954); the memorial is kept on 22 August. Her crown is also a promise: Paul speaks of a crown laid up for all who love the Lord’s appearing (2 Tim 4:8).", "fruit": "Perseverance and trust in Mary’s intercession", "fruitx": "Confidence in her as advocate and mother, and steadfastness to the end so as to share the crown.", "pray": "For the whole Church; for peace in the world, under her title Queen of Peace; for final perseverance for ourselves and those we love.", "q": "How does the queen-mother background change the way you hear the Hail Holy Queen?"}]}], "sorrows": [{"t": "The Prophecy of Simeon", "refs": "Luke 2:25–35", "text": "At the moment of offering her Son to God, Mary learns that he will be a sign spoken against and that a sword will pierce her own soul. Every joy that follows is held alongside this word.", "pray": "For the grace to accept God’s will in advance, without knowing the cost; for parents who receive hard news about their children."}, {"t": "The Flight into Egypt", "refs": "Matthew 2:13–15; Hosea 11:1", "text": "The Holy Family become refugees at night, fleeing a ruler who would kill children. Matthew sees Israel’s history replayed: “Out of Egypt I called my son.”", "pray": "For refugees and migrants; for families uprooted by violence or poverty; for trust when God’s guidance comes in the dark."}, {"t": "The Loss of the Child Jesus in the Temple", "refs": "Luke 2:41–50", "text": "Three days of searching, not knowing where he is. It is the sorrow of the felt absence of God, endured by the one whose faith never failed.", "pray": "For those who feel God has gone silent; for parents whose children have drifted from faith; for all who search."}, {"t": "Mary Meets Jesus on the Way to Calvary", "refs": "Luke 23:27–31; Lamentations 1:12", "text": "The Gospels do not record this meeting, but tradition (the Fourth Station) places Mary on the road. Lamentations 1:12 is applied to her in the liturgy: “Is there any sorrow like my sorrow?”", "pray": "For those who must watch someone they love suffer and cannot stop it; for the courage to stay present."}, {"t": "Jesus Dies on the Cross", "refs": "John 19:25–30", "text": "Mary stands (<i>heistēkeisan</i>, “they were standing”) at the Cross. From it she is given to the Beloved Disciple, and he to her: her spiritual motherhood of the Church is born at the moment of greatest loss.", "pray": "For the dying and those who keep vigil with them; for the grace to stand firm at the foot of every cross."}, {"t": "Jesus Is Taken Down from the Cross", "refs": "Mark 15:42–46; John 19:38–40", "text": "The image of the Pietà: the body she once held as an infant laid in her arms. Joseph of Arimathea and Nicodemus, secret disciples until now, find courage at the moment the cause seems lost.", "pray": "For grieving parents; for those who, like Joseph and Nicodemus, need courage to confess Christ openly."}, {"t": "Jesus Is Laid in the Tomb", "refs": "John 19:41–42; Luke 23:55–56", "text": "The stone is rolled across. Holy Saturday is the day of waiting, and tradition holds that Mary’s faith kept the Church’s hope alive while the disciples scattered.", "pray": "For all who mourn; for faith that holds through silence; for hope in the resurrection."}], "intro": [["How to use this guide", ["This is a study companion, not a replacement for praying the Rosary. Each mystery has five parts: <b>Scripture</b> to read before or while praying the decade; <b>Into the text</b>, a short exegetical note drawing on the Greek or Hebrew and on how the New Testament reuses the Old; <b>Fruit of the mystery</b>, the grace traditionally asked for; <b>We pray for</b>, suggested intentions; and <b>For reflection</b>, one question for study or journaling.", "A suggested method: on the day you pray a set, read the Scripture for one mystery slowly, take the note and the question into your journal, and then pray all five decades with that mystery as the day’s focus.", "References are to the RSV-2CE unless noted, with comparisons to the NRSV-CE and the New Jerusalem Bible. “RVM” is St John Paul II’s <i>Rosarium Virginis Mariae</i> (2002); “CCC” is the Catechism of the Catholic Church."]], ["Fruits and gifts", ["The <b>seven gifts of the Holy Spirit</b> (Isaiah 11:2–3; CCC 1831) are permanent dispositions that make us docile to the Spirit. The <b>fruits of the Spirit</b> (Galatians 5:22–23; CCC 1832) are the virtues the Spirit produces in us. The <b>fruit of a mystery</b> is a devotional convention: the grace the Church has traditionally asked for while meditating on that event. Lists vary a little between sources; this guide follows the most widely used tradition."]], ["For a reader from Brethren and Anglican formation", ["<b>Is it “vain repetition”?</b> Matthew 6:7 warns against <i>battalogēsēte</i>, babbling or heaping up empty phrases to wear down the gods. The target is mechanical pressure on God, not repetition as such. Jesus in Gethsemane prayed a third time “saying the same words” (Matt 26:44); Psalm 136 repeats its refrain twenty-six times; the living creatures of Revelation 4:8 never cease saying “Holy, holy, holy.”", "<b>Is it scriptural?</b> The Our Father is from Matthew 6. The first half of the Hail Mary is Gabriel’s greeting (Luke 1:28) and Elizabeth’s blessing (Luke 1:42); the petition that follows took its fixed form in the sixteenth century. Fifteen of the twenty mysteries are Gospel events. The Catechism calls the Rosary an “epitome of the whole Gospel” (CCC 971).", "<b>Does it put Mary in Christ’s place?</b> The name of Jesus is the centre of every Hail Mary, and every mystery is a moment in his life. John Paul II described the Rosary as contemplating the face of Christ with Mary, who “kept all these things, pondering them in her heart” (Luke 2:19)."]], ["How the Rosary is prayed", ["<b>Crucifix:</b> Sign of the Cross; Apostles’ Creed. <b>First large bead:</b> Our Father. <b>Three small beads:</b> three Hail Marys for faith, hope and charity. <b>Chain:</b> Glory Be.", "<b>Each decade:</b> announce the mystery; Our Father; ten Hail Marys; Glory Be; the Fatima Prayer. John Paul II recommended a short Scripture reading after announcing the mystery and a moment of silence before the Our Father (RVM 30–31).", "<b>Conclusion:</b> Hail, Holy Queen; the concluding prayer; optionally the Litany of Loreto and a prayer for the Pope’s intentions."]]], "schedNote": "This scheme comes from <i>Rosarium Virginis Mariae</i> 38. Before 2002 the cycle was Joyful on Monday and Thursday, Sorrowful on Tuesday and Friday, and Glorious on Wednesday, Saturday and Sunday. Many Catholics also pray the Joyful Mysteries on the Sundays of Advent and Christmastide and the Sorrowful on the Sundays of Lent; this is a pious custom rather than a rule.", "ded": ["The Holy Trinity; the Resurrection", "The Holy Spirit; the Holy Souls", "The Holy Angels", "St Joseph", "The Blessed Sacrament", "The Passion; the Sacred Heart", "Our Lady"], "sorrowsIntro": ["The Seven Sorrows (or Seven Dolours) Rosary was spread above all by the Order of the Servants of Mary (the Servites), founded in Florence in 1233 by seven merchants who withdrew to a life of prayer. Where the Rosary contemplates Christ’s life with Mary, the Seven Sorrows contemplate Mary’s own share in his suffering: Simeon’s sword unfolding through her life.", "The devotion received fresh attention through the apparitions at Kibeho in Rwanda (1981–1989), approved by the local bishop in 2001, where Our Lady asked that it be prayed. The Feast of Our Lady of Sorrows is 15 September.", "<b>How it is prayed:</b> begin with an act of contrition. For each sorrow, pray one Our Father and seven Hail Marys. After the seventh, pray three Hail Marys in honour of Our Lady’s tears, and close: “Pray for us, O most sorrowful Virgin, that we may be made worthy of the promises of Christ.”", "<b>On the promises:</b> seven graces traditionally attributed to revelations to St Bridget of Sweden (d. 1373) may be received with devotion, but as private revelation no Catholic is bound to believe them (CCC 67)."], "chaplets": [{"id": "crown", "t": "The Franciscan Crown", "sub": "The Seven Joys of Mary", "when": "Saturdays and Marian feasts", "body": ["The natural partner to the Seven Sorrows. Franciscan tradition dates it to 1422, when a young novice who wove crowns of flowers for a statue of Mary was taught by her to weave a crown of prayers instead. Seven decades of an Our Father, ten Hail Marys and Glory Be, then two more Hail Marys, make seventy-two, by one tradition the years of Mary’s earthly life."], "table": [["1", "The Annunciation", "Luke 1:26–38"], ["2", "The Visitation", "Luke 1:39–56"], ["3", "The Nativity", "Luke 2:1–20"], ["4", "The Adoration of the Magi", "Matthew 2:1–12"], ["5", "The Finding in the Temple", "Luke 2:41–52"], ["6", "The Risen Christ appears to his Mother", "By tradition; cf. John 20; Acts 1:14"], ["7", "The Assumption and Coronation", "Revelation 12:1"]], "note": "The sixth joy is not narrated in the Gospels. It rests on the conviction, voiced by St Ignatius of Loyola among others, that the risen Lord would surely have appeared first to his Mother. Treat it as a pious meditation rather than a biblical claim."}, {"id": "mercy", "t": "The Chaplet of Divine Mercy", "sub": "Prayed on ordinary rosary beads", "when": "Daily at 3 p.m., especially Fridays; novena from Good Friday to Divine Mercy Sunday", "body": ["Given to St Faustina Kowalska in Vilnius in 1935 (<i>Diary</i> 474–476). St John Paul II canonised her in 2000 and established the Second Sunday of Easter as Divine Mercy Sunday.", "<b>On each large bead:</b> “Eternal Father, I offer you the Body and Blood, Soul and Divinity of your dearly beloved Son, our Lord Jesus Christ, in atonement for our sins and those of the whole world.”", "<b>On each small bead:</b> “For the sake of his sorrowful Passion, have mercy on us and on the whole world.”", "<b>Conclusion, three times:</b> “Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.”"], "note": "“Body and Blood, Soul and Divinity” is the Council of Trent’s formula for what is present in the Eucharist (CCC 1374): the whole Christ. The closing prayer is the <i>Trisagion</i> (<i>Hagios ho Theos</i>), sung in Eastern liturgies since at least the fifth century and in the Roman rite on Good Friday, echoing Isaiah 6:3. For one who came to the Church through John 6, it is a way of praying the Real Presence on behalf of the whole world."}, {"id": "michael", "t": "The Chaplet of St Michael", "sub": "Nine salutations to the choirs of angels", "when": "Tuesdays; 29 September", "body": ["By tradition, St Michael appeared to a Portuguese Carmelite, Antonia d’Astonac, in the mid-eighteenth century and asked to be honoured by nine salutations. Pius IX indulgenced it in 1851. The name <i>Mîkā’ēl</i> is a question: “Who is like God?” (Dan 10:13; 12:1; Jude 9; Rev 12:7).", "<b>Opening:</b> “O God, come to my assistance; O Lord, make haste to help me.” Glory Be. Then, for each choir, one Our Father and three Hail Marys, asking through St Michael and that choir:"], "table": [["Seraphim", "to burn with the fire of perfect charity"], ["Cherubim", "to leave the ways of sin and run in the way of Christian perfection"], ["Thrones", "a spirit of true and sincere humility"], ["Dominions", "mastery over our senses and disordered passions"], ["Powers", "protection against the snares of the devil"], ["Virtues", "deliverance from evil and from temptation"], ["Principalities", "a spirit of true and sincere obedience"], ["Archangels", "perseverance in faith and good works"], ["Angels", "their protection in this life and guidance into glory"]], "after": "<b>Conclusion:</b> four Our Fathers, honouring St Michael, St Gabriel, St Raphael and one’s Guardian Angel; then the St Michael Prayer.", "note": "The ninefold order comes from Pseudo-Dionysius’s <i>Celestial Hierarchy</i> (c. 500), assembled from Scripture: seraphim (Isa 6:2), cherubim (Gen 3:24; Ezek 10), and thrones, dominions, principalities and powers from Paul (Col 1:16; Eph 1:21). Scripture supplies the names; the ranking is theological tradition."}, {"id": "gifts", "t": "Praying the Seven Gifts", "sub": "A scriptural scheme for the gifts of the Holy Spirit", "when": "Mondays; the novena before Pentecost; before Confirmation", "body": ["Several chaplets of the Holy Spirit exist in different forms. This is a simple study scheme rather than an official chaplet. For each gift: read the verse, pray one Our Father, seven Glory Bes, and “Come, Holy Spirit, fill the hearts of your faithful and kindle in them the fire of your love.”"], "table": [["Wisdom", "<i>ḥokmâ</i>", "1 Cor 2:6–13", "to see all things as God sees them"], ["Understanding", "<i>bînâ</i>", "Luke 24:45", "to grasp the meaning of revealed truth"], ["Counsel", "<i>‘ēṣâ</i>", "John 14:26", "to judge rightly what is to be done"], ["Fortitude", "<i>gəbûrâ</i>", "Acts 4:29–31", "to persevere and witness boldly"], ["Knowledge", "<i>da‘at</i>", "Phil 1:9–10", "to see created things in relation to God"], ["Piety", "<i>eusebeia</i> (LXX)", "Rom 8:14–16", "to cry “Abba” with a child’s trust"], ["Fear of the Lord", "<i>yir’at YHWH</i>", "Prov 9:10", "reverent awe that dreads offending God"]], "note": "The Hebrew of Isaiah 11:2–3 names six qualities, with “the fear of the LORD” twice. The Septuagint rendered the first as <i>eusebeia</i> (piety) and the second as <i>phobos theou</i>, and the Vulgate followed with <i>pietas</i> and <i>timor Domini</i>: hence seven (CCC 1831). These gifts sanctify the one who receives them; the charisms of 1 Corinthians 12 are given to build up others. Without charity, neither profits (1 Cor 13)."}], "prayers": [["The Sign of the Cross", "In the name of the Father, and of the Son, and of the Holy Spirit. Amen."], ["The Apostles’ Creed", "I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; he descended into hell; on the third day he rose again from the dead; he ascended into heaven, and is seated at the right hand of God the Father almighty; from there he will come to judge the living and the dead. I believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen."], ["The Our Father", "Our Father, who art in heaven, hallowed be thy name; thy kingdom come, thy will be done on earth as it is in heaven. Give us this day our daily bread, and forgive us our trespasses, as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen."], ["The Hail Mary", "Hail Mary, full of grace, the Lord is with thee; blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen."], ["The Glory Be", "Glory be to the Father, and to the Son, and to the Holy Spirit, as it was in the beginning, is now, and ever shall be, world without end. Amen."], ["The Fatima Prayer", "O my Jesus, forgive us our sins, save us from the fires of hell; lead all souls to heaven, especially those in most need of thy mercy."], ["Hail, Holy Queen", "Hail, holy Queen, Mother of mercy, our life, our sweetness and our hope. To thee do we cry, poor banished children of Eve; to thee do we send up our sighs, mourning and weeping in this valley of tears. Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile show unto us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary.<br>V. Pray for us, O holy Mother of God.<br>R. That we may be made worthy of the promises of Christ."], ["Concluding Prayer", "Let us pray. O God, whose only-begotten Son, by his life, death and resurrection, has purchased for us the rewards of eternal life, grant, we beseech thee, that meditating upon these mysteries of the most holy Rosary of the Blessed Virgin Mary, we may imitate what they contain and obtain what they promise, through the same Christ our Lord. Amen."], ["Act of Contrition", "O my God, I am heartily sorry for having offended you, and I detest all my sins because of your just punishments, but most of all because they offend you, my God, who are all good and deserving of all my love. I firmly resolve, with the help of your grace, to sin no more and to avoid the near occasions of sin. Amen."], ["The St Michael Prayer", "St Michael the Archangel, defend us in battle; be our protection against the wickedness and snares of the devil. May God rebuke him, we humbly pray; and do thou, O prince of the heavenly host, by the power of God, cast into hell Satan and all the evil spirits who prowl about the world seeking the ruin of souls. Amen."]]};
+const PDF = "In-the-School-of-Mary.pdf";
+const DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const BYDAY = ["glorious","joyful","sorrowful","glorious","luminous","sorrowful","joyful"];
+const ALSO = [
+  null,
+  ["gifts","Mondays are traditionally dedicated to the Holy Spirit: pray the Seven Gifts."],
+  ["michael","Tuesday is the traditional day of the holy angels: pray the Chaplet of St Michael."],
+  null,
+  null,
+  ["sorrows","Friday is a traditional day for the Seven Sorrows, and for the Divine Mercy Chaplet at three o’clock."],
+  ["crown","Saturday is Our Lady’s day: pray the Franciscan Crown of her Seven Joys."]];
+const ORD = ["First","Second","Third","Fourth","Fifth","Sixth","Seventh"];
+const app = document.getElementById("app");
+const setBy = k => D.sets.find(s => s.key === k);
+const accent = k => `var(--${k})`;
+const short = s => s.name.replace("The ","");
+
+function home(){
+  const now = new Date(), dow = now.getDay(), s = setBy(BYDAY[dow]);
+  const also = ALSO[dow];
+  let h = `<div class="date">${DAYS[dow]}, ${now.toLocaleDateString(undefined,{day:"numeric",month:"long"})}</div>
+  <h1 style="color:${accent(s.key)}">${s.name}</h1>
+  <p class="muted">Today’s mysteries. Tap one to study it before you pray.</p>
+  <ol class="strand" style="--accent:${accent(s.key)}">` +
+  s.mysteries.map((m,i)=>`<li><a href="#m/${s.key}/${i+1}">${m.t}<small>${m.fruit}</small></a></li>`).join("") + `</ol>`;
+  if (also){ const href = also[0]==="sorrows" ? "#sorrows" : `#chaplet/${also[0]}`;
+    h += `<p class="also"><a href="${href}">${also[1]}</a></p>`; }
+  h += `<nav class="index" aria-label="Contents">
+   ${D.sets.map(x=>`<a href="#set/${x.key}">${x.name}<span>${x.days}</span></a>`).join("")}
+   <a href="#sorrows">The Seven Sorrows of Our Lady<span>Fridays</span></a>
+   <a href="#chaplets">Companion chaplets<span>Four devotions</span></a>
+   <a href="#prayers">The prayers<span>Full texts</span></a>
+   <a href="#week">Which mysteries on which day</a>
+   <a href="#intro">Before you begin</a>
+  </nav>
+  <a class="dl" href="${PDF}" download>Download the booklet (PDF)</a>
+  <p class="muted" style="font-size:15px;margin-top:8px">38 pages, half-letter size for printing as a folded booklet.</p>`;
+  return h;
+}
+function setView(k){
+  const s = setBy(k); if(!s) return home();
+  return `<a class="back" href="#home">Home</a>
+  <h1 style="color:${accent(k)}">${s.name}</h1>
+  <p class="refs">Prayed on ${s.days}. ${s.season}.</p>
+  <p>${s.intro}</p>
+  <ol class="strand" style="--accent:${accent(k)}">` +
+  s.mysteries.map((m,i)=>`<li><a href="#m/${k}/${i+1}">${m.t}<small>${m.fruit}</small></a></li>`).join("") + `</ol>`;
+}
+function mystery(k,n){
+  const s = setBy(k); n = +n; const m = s && s.mysteries[n-1]; if(!m) return home();
+  const all = D.sets.flatMap(x=>x.mysteries.map((mm,i)=>[x.key,i+1,mm.t]));
+  const idx = all.findIndex(a=>a[0]===k && a[1]===n);
+  const prev = all[idx-1], next = all[idx+1];
+  const single = short(s).replace(/ies$/,"y");
+  return `<div style="--accent:${accent(k)}">
+  <a class="back" href="#set/${k}">${s.name}</a>
+  <div class="lbl">${ORD[n-1]} ${single}</div>
+  <h1>${m.t}</h1>
+  <div class="refs">${m.refs}</div>
+  <div class="lbl">Into the text</div><p>${m.text}</p>
+  <div class="lbl">Fruit of the mystery</div><p><b>${m.fruit}.</b> ${m.fruitx}</p>
+  <div class="lbl">We pray for</div><p>${m.pray}</p>
+  <div class="lbl">For reflection</div><p class="reflect">${m.q}</p>
+  <div class="pager">${prev?`<a href="#m/${prev[0]}/${prev[1]}">‹ ${prev[2]}</a>`:""}${next?`<a class="next" href="#m/${next[0]}/${next[1]}">${next[2]} ›</a>`:""}</div></div>`;
+}
+function sorrows(){
+  return `<div style="--accent:var(--sorrows)"><a class="back" href="#home">Home</a>
+  <h1 style="color:var(--sorrows)">The Seven Sorrows of Our Lady</h1>
+  <p class="refs">Fridays, especially in Lent; 15 September</p>
+  ${D.sorrowsIntro.map(p=>`<p>${p}</p>`).join("")}
+  ${D.sorrows.map((x,i)=>`<div class="lbl">The ${ORD[i].toLowerCase()} sorrow</div><h2 style="margin-top:2px">${x.t}</h2>
+   <div class="refs">${x.refs}</div><p>${x.text}</p><p><b>We pray</b> ${x.pray.charAt(0).toLowerCase()+x.pray.slice(1)}</p>`).join("")}
+  <div class="note">Five of the seven sorrows come directly from Scripture, one from Lamentations applied by tradition, and one from tradition alone. Compare the set with Luke 2:19 and 2:51. What does it mean that the Gospels show Mary pondering rather than explaining?</div></div>`;
+}
+function chaplets(){
+  return `<a class="back" href="#home">Home</a><h1>Companion chaplets</h1>
+  <p class="muted">A set of Mary’s joys to balance her sorrows, a chaplet anchored in the Real Presence, one for the angels, and a scheme for praying for the gifts of the Holy Spirit.</p>
+  <nav class="index" style="margin-top:14px">${D.chaplets.map(c=>`<a href="#chaplet/${c.id}">${c.t}<span>${c.when.split(";")[0]}</span></a>`).join("")}</nav>`;
+}
+function chaplet(id){
+  const c = D.chaplets.find(x=>x.id===id); if(!c) return chaplets();
+  let t = "";
+  if (c.table){
+    const head = id==="gifts" ? "<tr><th>Gift</th><th>Isa 11</th><th>Reading</th><th>Grace asked</th></tr>" : "";
+    t = `<div class="wrap"><table>${head}${c.table.map(r=>`<tr>${r.map((v,i)=>`<td${i===0&&id!=="crown"?' style="font-weight:bold"':''}>${v}</td>`).join("")}</tr>`).join("")}</table></div>`;
+  }
+  return `<a class="back" href="#chaplets">Companion chaplets</a><h1>${c.t}</h1>
+  <p class="refs">${c.sub}. ${c.when}.</p>
+  ${c.body.map(p=>`<p>${p}</p>`).join("")}${t}${c.after?`<p>${c.after}</p>`:""}
+  <div class="note"><b>Into the text.</b> ${c.note}</div>`;
+}
+function prayers(){
+  return `<a class="back" href="#home">Home</a><h1>The prayers</h1>` +
+   D.prayers.map(([a,b])=>`<h3>${a}</h3><p>${b}</p>`).join("");
+}
+function week(){
+  const dow = new Date().getDay();
+  return `<a class="back" href="#home">Home</a><h1>Which mysteries on which day</h1>
+  <div class="wrap"><table><tr><th>Day</th><th>Mysteries</th><th>Traditional dedication</th></tr>
+  ${DAYS.map((d,i)=>`<tr class="${i===dow?"today":""}"><td>${d}</td><td><a href="#set/${BYDAY[i]}">${short(setBy(BYDAY[i])).replace(" Mysteries","")}</a></td><td>${D.ded[i]}</td></tr>`).join("")}
+  </table></div><p>${D.schedNote}</p>`;
+}
+function intro(){
+  return `<a class="back" href="#home">Home</a><h1>Before you begin</h1>` +
+   D.intro.map(([h,ps])=>`<h2>${h}</h2>${ps.map(p=>`<p>${p}</p>`).join("")}`).join("");
+}
+/* ---------- Scripture links ---------- */
+const VERSIONS = [
+  {k:"RSVCE",  name:"Revised Standard Version, Catholic Edition", note:"Closest available to the RSV-2CE", yv:[3548,"RSVCI"],  bg:"RSVCE"},
+  {k:"NRSVCE", name:"New Revised Standard Version, Catholic Edition", yv:[2015,"NRSV-CI"], bg:"NRSVCE"},
+  {k:"NABRE",  name:"New American Bible, Revised Edition", yv:[463,"NABRE"], bg:"NABRE"},
+  {k:"NRSVUE", name:"NRSV Updated Edition", note:"Includes the deuterocanonical books", yv:[3523,"NRSVUE"], bg:"NRSVUE"},
+  {k:"DRA",    name:"Douay-Rheims", note:"Bible Gateway only", bg:"DRA"},
+  {k:"RSV",    name:"Revised Standard Version (1952/1971)", yv:[2020,"RSV"], bg:"RSV"},
+  {k:"KJV",    name:"King James Version", note:"No deuterocanonical books", yv:[1,"KJV"], bg:"KJV"}];
+const APPS = {yv:{name:"YouVersion", sub:"Bible.com — opens in the Bible App if it is installed"}, bg:{name:"Bible Gateway", sub:"BibleGateway.com in your browser"}};
+const BOOKS = [
+ ["Genesis","Gen","GEN"],["Exodus","Exod|Ex","EXO"],["Leviticus","Lev","LEV"],["Numbers","Num","NUM"],["Deuteronomy","Deut","DEU"],
+ ["Joshua","Josh","JOS"],["Judges","Judg","JDG"],["1 Samuel","1 Sam","1SA"],["2 Samuel","2 Sam","2SA"],["1 Kings","1 Kgs","1KI"],
+ ["2 Kings","2 Kgs","2KI"],["1 Chronicles","1 Chr","1CH"],["2 Chronicles","2 Chr","2CH"],["Psalms","Psalm|Ps","PSA"],["Proverbs","Prov","PRO"],
+ ["Isaiah","Isa","ISA"],["Jeremiah","Jer","JER"],["Lamentations","Lam","LAM"],["Ezekiel","Ezek","EZK"],["Daniel","Dan","DAN"],
+ ["Hosea","Hos","HOS"],["Joel","","JOL"],["Amos","","AMO"],["Micah","Mic","MIC"],["Malachi","Mal","MAL"],["Wisdom","Wis","WIS"],["Sirach","Sir","SIR"],
+ ["Matthew","Matt|Mt","MAT"],["Mark","Mk","MRK"],["Luke","Lk","LUK"],["John","Jn","JHN"],["Acts","","ACT"],["Romans","Rom","ROM"],
+ ["1 Corinthians","1 Cor","1CO"],["2 Corinthians","2 Cor","2CO"],["Galatians","Gal","GAL"],["Ephesians","Eph","EPH"],["Philippians","Phil","PHP"],
+ ["Colossians","Col","COL"],["1 Timothy","1 Tim","1TI"],["2 Timothy","2 Tim","2TI"],["Hebrews","Heb","HEB"],["1 Peter","1 Pet","1PE"],["2 Peter","2 Pet","2PE"],
+ ["1 John","1 Jn","1JN"],["Jude","","JUD"],["Revelation","Rev","REV"]];
+const BOOKMAP = {};
+BOOKS.forEach(([full,ab,code]) => { [full, ...ab.split("|").filter(Boolean)].forEach(n => BOOKMAP[n] = {full, code}); });
+const bookAlt = Object.keys(BOOKMAP).sort((a,b)=>b.length-a.length).map(n=>n.replace(/ /g,"\\s")).join("|");
+const DASH = "[–-]";
+const LOC = `(\\d+)(?::(\\d+))?(?:${DASH}(\\d+)(?::(\\d+))?)?`;
+const REF_RE = new RegExp(`\\b(${bookAlt})\\.?\\s(${LOC})`, "g");
+const CONT_RE = new RegExp(`^([;,]\\s?)(${LOC})(?![\\d:]|\\s[A-Z])`);
+
+let settings = {app:"yv", ver:"RSVCE"};
+try { Object.assign(settings, JSON.parse(localStorage.getItem("som-settings") || "{}")); } catch(e) {}
+function saveSettings(){ try { localStorage.setItem("som-settings", JSON.stringify(settings)); } catch(e) {} }
+function verFor(app){ let v = VERSIONS.find(x=>x.k===settings.ver); if(!v || !v[app]) v = VERSIONS.find(x=>x[app]); return v; }
+
+// loc parts: ch, v1, ch2orV2, v2
+const SINGLE = new Set(["OBA","PHM","2JN","3JN","JUD"]);
+function refURL(book, ch, v1, x, y){
+  const app = settings.app, v = verFor(app);
+  if (SINGLE.has(book.code) && !v1){ v1 = ch; ch = "1"; }
+  if (app === "bg"){
+    let q = `${book.full} ${ch}`;
+    if (v1) q += `:${v1}`;
+    if (x) q += y ? `-${x}:${y}` : `-${x}`;
+    return `https://www.biblegateway.com/passage/?search=${encodeURIComponent(q)}&version=${v.bg}`;
+  }
+  const [id, ab] = v.yv;
+  let p = `${book.code}.${ch}`;
+  if (v1) p += `.${v1}` + (x && !y ? `-${x}` : "");
+  return `https://www.bible.com/bible/${id}/${p}.${ab}`;
+}
+function makeLink(text, url){ const a = document.createElement("a"); a.href = url; a.textContent = text;
+  a.className = "ref"; a.target = "_blank"; a.rel = "noopener"; return a; }
+
+function linkify(root){
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("a,button,script,style,h1") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    const text = node.nodeValue; REF_RE.lastIndex = 0;
+    if (!REF_RE.test(text)) return; REF_RE.lastIndex = 0;
+    const frag = document.createDocumentFragment(); let last = 0, m;
+    while ((m = REF_RE.exec(text))){
+      const book = BOOKMAP[m[1].replace(/\s+/g," ")];
+      // a bare chapter range like “Matthew 5–7” has no colon: treat x as an end chapter
+      frag.append(text.slice(last, m.index));
+      frag.append(makeLink(m[0], refURL(book, m[3], m[4], m[5], m[6])));
+      last = REF_RE.lastIndex;
+      let rest = text.slice(last), c;
+      while ((c = CONT_RE.exec(rest))){
+        frag.append(c[1]);
+        const [ , , full, ch, v1, x, y] = c;
+        // “, 12–13” after a verse means more verses in the same chapter
+        const sameCh = c[1].startsWith(",") && !v1;
+        frag.append(makeLink(full, sameCh ? refURL(book, m[3], ch, x, null) : refURL(book, ch, v1, x, y)));
+        last += c[0].length; rest = text.slice(last); REF_RE.lastIndex = last;
+      }
+    }
+    frag.append(text.slice(last));
+    node.replaceWith(frag);
+  });
+}
+
+/* ---------- Settings page ---------- */
+function settingsView(){
+  const opts = VERSIONS.filter(v => v[settings.app]);
+  const cur = verFor(settings.app).k;
+  return `<a class="back" href="#home">Home</a><h1>Settings</h1>
+  <h2>Open Scripture in</h2>
+  ${Object.entries(APPS).map(([k,a])=>`<label class="opt"><input type="radio" name="app" value="${k}" ${settings.app===k?"checked":""}>
+     <span>${a.name}<small>${a.sub}</small></span></label>`).join("")}
+  <h2>Bible version</h2>
+  <select id="verSel" aria-label="Bible version">${opts.map(v=>`<option value="${v.k}" ${v.k===cur?"selected":""}>${v.name}${v.note?" — "+v.note:""}</option>`).join("")}</select>
+  <p class="muted" style="font-size:15px;margin-top:10px">The guide follows the RSV-2CE, which neither service carries. The RSV Catholic Edition is its direct predecessor; the RSV-2CE mainly modernises “thee” and “thou” and revises some passages.</p>
+  <p>Try it: John 6:51–58</p>
+  <h2>Appearance</h2>
+  <div class="seg" role="group" aria-label="Appearance">${["auto","light","dark"].map(t=>`<button data-theme-set="${t}" aria-pressed="${themeNow()===t}">${t[0].toUpperCase()+t.slice(1)}</button>`).join("")}</div>`;
+}
+function wireSettings(){
+  app.querySelectorAll('input[name="app"]').forEach(r => r.onchange = () => { settings.app = r.value; saveSettings(); route(); });
+  const sel = app.querySelector("#verSel"); if (sel) sel.onchange = () => { settings.ver = sel.value; saveSettings(); route(); };
+  app.querySelectorAll("[data-theme-set]").forEach(b => b.onclick = () => { setTheme(b.dataset.themeSet); route(); });
+}
+
+/* ---------- Routing ---------- */
+let current = location.hash || "#home";
+function route(h){
+  if (typeof h === "string") current = h;
+  const [r,a,b] = (current.slice(1)||"home").split("/");
+  const v = {set:()=>setView(a), m:()=>mystery(a,b), sorrows, chaplets, chaplet:()=>chaplet(a), prayers, week, intro, settings:settingsView}[r];
+  const y = (typeof h === "string") ? 0 : window.scrollY;
+  app.innerHTML = v ? v() : home();
+  if (r === "settings") wireSettings();
+  if (r !== "prayers") linkify(app);
+  window.scrollTo(0, y);
+}
+/* Navigation: handle in-page links directly, so they work even where the page is
+   shown in a sandboxed frame that blocks hash navigation (such as a file preview). */
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  e.preventDefault();
+  const h = a.getAttribute("href");
+  try { history.pushState(null, "", h); } catch (err) {}
+  route(h);
+});
+window.addEventListener("popstate", () => route(location.hash || "#home"));
+window.addEventListener("hashchange", () => route(location.hash || "#home"));
+
+/* ---------- Appearance: Auto → Light → Dark ---------- */
+const root = document.documentElement, tb = document.getElementById("themeBtn");
+const ICONS = {
+  auto: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg>`,
+  light: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>`,
+  dark: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>`};
+const NAMES = {auto:"Auto", light:"Light", dark:"Dark"};
+function themeNow(){ return root.dataset.theme || "auto"; }
+function sysDark(){ return matchMedia("(prefers-color-scheme: dark)").matches; }
+function setTheme(t){
+  if (t === "auto") delete root.dataset.theme; else root.dataset.theme = t;
+  try { t === "auto" ? localStorage.removeItem("som-theme") : localStorage.setItem("som-theme", t); } catch(e) {}
+  tb.innerHTML = ICONS[t];
+  const next = {auto:"light", light:"dark", dark:"auto"}[t];
+  tb.setAttribute("aria-label", `Appearance: ${NAMES[t]}. Tap for ${NAMES[next]}.`);
+  tb.title = `Appearance: ${NAMES[t]}`;
+  const dark = t === "dark" || (t === "auto" && sysDark());
+  document.querySelector('meta[name="theme-color"]').content = dark ? "#0F1729" : "#23407A";
+}
+let saved = null; try { saved = localStorage.getItem("som-theme"); } catch(e) {}
+setTheme(saved || "auto");
+tb.onclick = () => { setTheme({auto:"light", light:"dark", dark:"auto"}[themeNow()]);
+  if (current === "#settings") route(); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (themeNow()==="auto") setTheme("auto"); });
+
+route();
+
+/* about */
+document.getElementById("ver").textContent = VERSION;
+const aboutDlg = document.getElementById("about");
+document.getElementById("aboutBtn").onclick = () => aboutDlg.showModal();
+/* Close with the button or by tapping outside the box. A plain button is used rather than
+   a dialog form, because forms are blocked in sandboxed previews. */
+document.getElementById("aboutClose").onclick = () => aboutDlg.close();
+aboutDlg.addEventListener("click", e => { if (e.target === aboutDlg) aboutDlg.close(); });
+
+/* offline */
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+</script>
+</body>
+</html>
